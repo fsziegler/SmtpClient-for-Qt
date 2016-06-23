@@ -1,4 +1,11 @@
 *.o
 *.pro.user
 Makefile
-
+Makefile.Debug
+Makefile.Release
+*.dll
+*.exp
+*.ilk
+*.lib
+*.pdb
+*.obj
