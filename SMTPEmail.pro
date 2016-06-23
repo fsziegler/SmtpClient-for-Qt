@@ -1,30 +1,54 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-10-30T22:19:03
+# Project created by QtCreator 2011-08-11T20:59:25
 #
 #-------------------------------------------------
 
-QT       += core
-QT       -= gui
-QT       += network
+QT       += core network
 
-TARGET = demo1
-CONFIG   += console
-CONFIG   -= app_bundle
+TARGET = SMTPEmail
+
+# Build as an application
+#TEMPLATE = app
+
+# Build as a library
+TEMPLATE = lib
+DEFINES += SMTP_BUILD
+win32:CONFIG += dll
 unix:CONFIG += staticlib
 
-TEMPLATE = app
-
 SOURCES += \
-    demo1.cpp
+    src/emailaddress.cpp \
+    src/mimeattachment.cpp \
+    src/mimefile.cpp \
+    src/mimehtml.cpp \
+    src/mimeinlinefile.cpp \
+    src/mimemessage.cpp \
+    src/mimepart.cpp \
+    src/mimetext.cpp \
+    src/smtpclient.cpp \
+    src/quotedprintable.cpp \
+    src/mimemultipart.cpp \
+    src/mimecontentformatter.cpp \
 
-# Location of SMTP Library
-unix:SMTP_LIBRARY_LOCATION = $$PWD/../../../build-SMTPEmail-Desktop-Debug
-win32:SMTP_LIBRARY_LOCATION = $$PWD/../../../build-SMTPEmail-Desktop_Qt_5_6_1_MSVC2015_64bit-Debug
+HEADERS  += \
+    src/emailaddress.h \
+    src/mimeattachment.h \
+    src/mimefile.h \
+    src/mimehtml.h \
+    src/mimeinlinefile.h \
+    src/mimemessage.h \
+    src/mimepart.h \
+    src/mimetext.h \
+    src/smtpclient.h \
+    src/SmtpMime \
+    src/quotedprintable.h \
+    src/mimemultipart.h \
+    src/mimecontentformatter.h \
+    src/smtpexports.h
 
-win32:CONFIG(release, debug|release): LIBS += -L$$SMTP_LIBRARY_LOCATION/release/ -lSMTPEmail
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$SMTP_LIBRARY_LOCATION/debug/ -lSMTPEmail
-else:unix: LIBS += -L$$SMTP_LIBRARY_LOCATION -lSMTPEmail
+OTHER_FILES += \
+    LICENSE \
+    README.md
 
-INCLUDEPATH += $$SMTP_LIBRARY_LOCATION
-DEPENDPATH += $$SMTP_LIBRARY_LOCATION
+FORMS +=
