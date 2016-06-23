@@ -15,6 +15,7 @@ TARGET = SMTPEmail
 TEMPLATE = lib
 DEFINES += SMTP_BUILD
 win32:CONFIG += dll
+CONFIG += staticlib
 
 SOURCES += \
     src/emailaddress.cpp \

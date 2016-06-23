@@ -5,12 +5,13 @@
 #-------------------------------------------------
 
 QT       += core
-
 QT       -= gui
+QT       += network
 
 TARGET = demo1
 CONFIG   += console
 CONFIG   -= app_bundle
+CONFIG += staticlib
 
 TEMPLATE = app
 
@@ -19,7 +20,7 @@ SOURCES += \
     demo1.cpp
 
 # Location of SMTP Library
-SMTP_LIBRARY_LOCATION = $$PWD/../../../build/SMTPEmail-Desktop-Debug
+SMTP_LIBRARY_LOCATION = $$PWD/../../../build-SMTPEmail-Desktop-Debug
 
 win32:CONFIG(release, debug|release): LIBS += -L$$SMTP_LIBRARY_LOCATION/release/ -lSMTPEmail
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$SMTP_LIBRARY_LOCATION/debug/ -lSMTPEmail
